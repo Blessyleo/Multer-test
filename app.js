@@ -4,6 +4,7 @@ const logger = require('morgan'); //for seeing api calls in terminal
 const PORT = process.env.PORT || 3000;
 const app = new express();
 const multer = require("multer")
+const path = require('path');
 
 const fs=require('fs');
 
@@ -15,17 +16,17 @@ app.use(express.json()); //to receive data from front end
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'));
 
-// app.use('/uploads', express.static(path.join(__dirname +'/uploads')));
+ app.use('/uploads', express.static(path.join(__dirname +'/uploads')));
 // const api = require('./routes/api');
 // app.use(api);
-const path = require('path');
+
 app.use(express.static(path.join(__dirname + '/dist/frontend')));
 
 
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/uploads/');
+        cb(null,'uploads');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
