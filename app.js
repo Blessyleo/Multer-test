@@ -16,7 +16,7 @@ app.use(express.json()); //to receive data from front end
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'));
 
- app.use('/uploads', express.static(path.join(__dirname +'/uploads')));
+ app.use('uploads', express.static(path.join(__dirname +'/uploads')));
 // const api = require('./routes/api');
 // app.use(api);
 
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname + '/dist/frontend')));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null,'/uploads');
+        cb(null,'uploads');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
