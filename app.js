@@ -45,7 +45,7 @@ app.post('/api/studententry', upload.single('file'), async (req, res) => {
         address: req.body.address,
         college: req.body.college,
         fileuploadname: req.file.filename,
-        fileuploadpath: req.file.path
+        fileuploadpath: req.body.path
     }
     console.log(data)
 
