@@ -16,7 +16,7 @@ app.use(express.json()); //to receive data from front end
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'));
 
- app.use('public', express.static(path.join(__dirname +'public')));
+//  app.use('public', express.static(path.join(__dirname +'public')));
 // const api = require('./routes/api');
 // app.use(api);
 
